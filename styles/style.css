@@ -25,23 +25,52 @@ header {
     border-bottom: 1px solid #eee;
 }
 
+header .container {
+    display: flex; /* Используем Flexbox для размещения элементов в ряд */
+    justify-content: space-between; /* Размещаем логотип и навигацию по краям */
+    align-items: center; /* Выравнивание по центру по вертикали */
+}
+
 header .logo {
     font-weight: bold;
     font-size: 1.5rem;
 }
 
 header nav {
-    float: right;
+    display: flex; /* Используем Flexbox для навигации */
 }
 
 header nav a {
-    margin-left: 20px;
+    margin-left: 20px; /* Отступ между ссылками */
     color: #333;
     text-decoration: none;
+    padding: 10px 20px; /* Отступы для кнопок */
+    border-radius: 5px; /* Скругление углов */
+    display: flex; /* Используем Flexbox для выравнивания текста */
+    align-items: center; /* Вертикальное выравнивание текста по центру */
 }
+
+/* Стили для кнопки "For Recruiters" */
 
 header nav a:hover {
     color: #5A67D8;
+}
+
+/* Стили для кнопок */
+header nav .sign-up {
+    background-color: #5A67D8; /* Синий фон */
+    color: #fff; /* Белый текст */
+}
+
+header nav .log-in {
+    background-color: #fff; /* Белый фон */
+    color: #5A67D8; /* Синий текст */
+    border: 2px solid #5A67D8; /* Контур синим цветом */
+}
+
+header nav .log-in:hover {
+    background-color: #5A67D8; /* Фон при наведении */
+    color: #fff; /* Цвет текста при наведении */
 }
 
 /* Hero Section */
@@ -60,19 +89,18 @@ header nav a:hover {
     font-size: 1.1rem;
     margin-bottom: 30px;
 }
-
-.primary-button {
+.buttonjoin{
     background-color: #5A67D8;
     color: #fff;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    margin-top: 10px;
+    margin-bottom:10px;
 }
-
-.primary-button:hover {
+.buttonjoin:hover{
     background-color: #434190;
 }
-
 .hero-image {
     width:50%;
     height: 900px
@@ -85,26 +113,12 @@ header nav a:hover {
     padding: 40px 0;
     text-align: center;
 }
-
 .quote blockquote {
     font-style: italic;
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-.quote .author {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.quote .author img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
 
 /* Info Section */
 .info {
@@ -162,43 +176,39 @@ header nav a:hover {
 
 /* CTA Section */
 .cta {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 60px 0;
-}
-.cta {
+    background-color: #333; /* Цвет фона секции */
+    color: #fff; /* Цвет текста */
+    padding: 60px 0; /* Отступы сверху и снизу */
     margin-top: 40px; /* Отступ сверху для всего блока */
 }
 
 .cta .container {
-    position:relative;
     display: flex; /* Используем Flexbox для выравнивания элементов */
     align-items: center; /* Центрируем элементы по вертикали */
-    justify-content: space-between; /* Распределяем пространство между элементами */
+    justify-content: space-between; /* Распределяем пространство между текстом и изображением */
 }
 
 .text-container {
     max-width: 400px; /* Ограничиваем ширину текстового блока (по желанию) */
-    background-color: black; /* Устанавливаем черный фон для текстового блока */
-    color: white; /* Устанавливаем белый цвет текста для контраста */
-    padding: 20px; /* Добавляем отступы внутри текстового блока */
 }
 
-.cta h2 {
-    font-size: 24px; /* Размер шрифта заголовка */
+.cta h1 {
+    font-size: 40px; /* Увеличиваем размер шрифта заголовка */
     margin-bottom: 10px; /* Уменьшаем отступ снизу заголовка */
 }
 
-.primary-button {
-    padding: 10px 20px; /* Отступы кнопки */
-    font-size: 16px; /* Размер шрифта кнопки */
-    background-color: #007BFF; /* Цвет фона кнопки (можно изменить) */
-    color: white; /* Цвет текста кнопки */
-    border: none; /* Убираем рамку у кнопки */
-    cursor: pointer; /* Указываем, что кнопка кликабельная */
-    position: absolute;
-    bottom: 50px;
+.cta-button {
+    background-color: #5A67D8; /* Синий фон для кнопки */
+    color: #fff; /* Белый текст */
+    padding: 10px 20px; /* Отступы для кнопки */
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Скругление углов */
+    cursor: pointer; /* Указатель при наведении */
+    margin-top: 20px; /* Отступ сверху для кнопки, чтобы отделить от текста */
+}
+
+.cta-button:hover {
+    background-color: #434190; /* Цвет фона при наведении */
 }
 
 .cta-image {
@@ -207,19 +217,36 @@ header nav a:hover {
 }
 
 /* Footer */
-footer {
-    background-color: #fff;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
+.footer {
+    background-color: #fff; /* Устанавливаем белый фон для футера */
+    color: #333; /* Цвет текста футера (темно-серый для контраста) */
+    padding: 20px 0; /* Отступы сверху и снизу */
+    padding-left: 18%; /* Отступ слева для всего футера */
 }
 
-.footer-links a {
-    color: #aaa;
-    text-decoration: none;
-    margin-left: 15px;
+.footer__text {
+    text-align: left; /* Выравнивание текста по левому краю */
+    font-weight: bold; /* Жирный шрифт для первого и третьего абзаца */
+    margin: 20px 0; /* Увеличиваем отступы сверху и снизу для абзацев */
+    line-height: 1.5; /* Высота строки для увеличения расстояния между строками */
 }
 
-.footer-links a:hover {
-    color: #fff;
+.footer__text:nth-child(2) {
+    font-size: 14px; /* Меньший размер шрифта для второго абзаца */
+    color: #aaa; /* Серый цвет текста для второго абзаца */
+}
+
+.footer__links {
+    text-align: right; /* Выравнивание ссылок по правому краю */
+    margin-top: 10px; /* Отступ сверху для ссылок */
+}
+
+.footer__link {
+    color: #333; /* Цвет ссылок (темно-серый) */
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    font-weight: bold; /* Жирный шрифт для ссылок */
+}
+
+.footer__link:hover {
+    color: #aaa; /* Цвет ссылок при наведении */
 }
