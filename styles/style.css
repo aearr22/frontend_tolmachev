@@ -77,7 +77,6 @@ header nav .log-in:hover {
 .hero {
     text-align: center;
     padding: 60px 0;
-    background-color: #f9f9f9;
 }
 
 .hero h1 {
@@ -107,6 +106,33 @@ header nav .log-in:hover {
     margin-top: 40px;
 }
 
+/*Vrote Section */
+
+.bloktem {
+    position: relative; /* Позволяет использовать абсолютное позиционирование для изображения */
+    height: 600px; /* Задайте высоту блока по вашему усмотрению */
+    background-color: black; /* Черный фон */
+    overflow: hidden; /* Скрывает часть изображения, выходящую за пределы блока */
+}
+.bloktem::before{
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background:linear-gradient(to top, black 50%, white 50%); 
+}
+
+.hero-image {
+    position: absolute; /* Позволяет позиционировать изображение относительно родительского блока */
+    top: -50%; /* Поднимает изображение на 50% его высоты */
+    left: 50%; /* Центрирует изображение по горизонтали */
+    transform: translate(-50%, 0); /* Сдвигает изображение влево на 50% его ширины для центрирования */
+    max-width: 100%; /* Устанавливаем максимальную ширину изображения (можно настроить) */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+}
+
 /* Quote Section */
 .quote {
     background-color: #f1f1f1;
@@ -118,7 +144,19 @@ header nav .log-in:hover {
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
+.images{
+    align-items: center;
+    margin-top: 50px;
+}
+.img_dop1{
+    width: 70px;
+    margin-left: -300px;
 
+}
+.img_dop2{
+    width: 70px;
+    margin-left: 210px;
+}
 
 /* Info Section */
 .info {
@@ -176,7 +214,7 @@ header nav .log-in:hover {
 
 /* CTA Section */
 .cta {
-    background-color: #333; /* Цвет фона секции */
+    background-color: #000; /* Цвет фона секции */
     color: #fff; /* Цвет текста */
     padding: 60px 0; /* Отступы сверху и снизу */
     margin-top: 40px; /* Отступ сверху для всего блока */
@@ -249,4 +287,23 @@ header nav .log-in:hover {
 
 .footer__link:hover {
     color: #aaa; /* Цвет ссылок при наведении */
+}
+.footer {
+    background-color: #f8f8f8; /* Цвет фона подвала */
+    padding: 20px; /* Отступы внутри подвала */
+}
+
+.foot_all {
+    display: flex; /* Используем Flexbox для размещения элементов */
+    justify-content: space-between; /* Размещаем элементы по краям */
+    align-items: center; /* Выравнивание по центру по вертикали */
+}
+
+.foot_left {
+    flex: 0 1 auto; /* Элемент слева не растягивается */
+
+}
+
+.footer__right {
+    text-align: right; /* Текст справа выравнивается вправо */
 }
