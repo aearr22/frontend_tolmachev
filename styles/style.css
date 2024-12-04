@@ -76,6 +76,7 @@ header nav .log-in:hover {
 /* Hero Section */
 .hero {
     text-align: center;
+    margin-bottom: 10%;
 
 }
 
@@ -106,34 +107,147 @@ header nav .log-in:hover {
     margin-top: 40px;
 }
 
+/*Okno */
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.buttonokno {
+    background-color: #3D1EDD; /* Синий фон для кнопки */
+    color: #fff; /* Белый текст */
+    padding: 15px 30px; /* Увеличенные отступы для кнопки */
+    border-radius: 25px; /* Закругленные углы */
+    cursor: pointer; /* Указатель при наведении */
+    margin: 20px auto; /* Отступ сверху и снизу, авто для центрирования */
+    display: block; /* Делаем кнопку блочным элементом для центрирования */
+    text-align: center; /* Центрируем текст внутри кнопки */
+    border: none; /* Убираем границу */
+    font-size: 18px; /* Увеличенный размер шрифта */
+    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+}
+
+.buttonokno:hover {
+    background-color: #2b0f9e; /* Цвет кнопки при наведении */
+}
+
+.modal {
+    display: none; /* Скрыть модальное окно по умолчанию */
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.7); /* Более темный полупрозрачный фон */
+}
+
+.modal-content {
+    background-color: #ffffff; /* Белый фон для содержимого */
+    margin: auto; 
+    padding: 30px; /* Увеличенный отступ */
+    border-radius: 15px; /* Закругленные углы */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Более выраженная тень */
+    width: 400px; /* Ширина модального окна */
+    position: relative;
+    top: 25%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000; /* Цвет при наведении */
+}
+
+h2 {
+    text-align: center;
+    color: #333; /* Цвет заголовка */
+    margin-bottom: 30px; /* Увеличенный отступ снизу для заголовка */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px; /* Добавлен отступ между меткой и полем ввода */
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+    width: calc(100% - 20px); /* Учитываем отступы */
+    padding: 12px; /* Увеличенный отступ внутри полей ввода */
+    margin-bottom: 20px; /* Отступ между полями ввода и кнопкой */
+    border-radius: 8px; /* Закругленные углы для полей ввода */
+    border: 1px solid #ccc; /* Цвет границы */
+    transition: border-color 0.3s ease; /* Плавный переход цвета границы */
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus {
+    border-color: #007BFF; /* Цвет границы при фокусе */
+}
+
 /*Vrote Section */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
 .bloktem {
     position: relative; /* Позволяет использовать абсолютное позиционирование для изображения */
     height: 600px; /* Задайте высоту блока по вашему усмотрению */
     background-color: black; /* Черный фон */
-    overflow: hidden; /* Скрывает часть изображения, выходящую за пределы блока */
+    margin-top: 50px; /* Отступ сверху для блока слайдера */
 }
-.bloktem::before{
-    content: "";
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    width: 100%;
-    height: 150%;
-    background:linear-gradient(to top, black 50%, white 50%); 
+
+.slider {
+    position: relative;
+    height: 100%; /* Высота слайдера равна высоте родительского блока */
 }
 
 .hero-image {
     position: absolute; /* Позволяет позиционировать изображение относительно родительского блока */
-    top: 40%; /* Центрирует изображение по вертикали */
+    top: -150px; /* Поднимаем изображение выше блока */
     left: 50%; /* Центрирует изображение по горизонтали */
-    transform: translate(-50%, -50%); /* Сдвигает изображение влево и вверх на 50% его ширины и высоты для центрирования */
+    transform: translate(-50%, 0); /* Сдвигает изображение влево на 50% его ширины для центрирования */
     max-width: none; /* Убираем ограничение по ширине */
-    width: 60%; /* Автоматическая ширина для сохранения пропорций */
-    height: 100%; /* Устанавливаем высоту изображения на 50% высоты родительского блока */
+    width:60%; /* Автоматическая ширина для сохранения пропорций */
+    height: 600px; /* Устанавливаем высоту изображения на автоматическую для сохранения пропорций */
+    opacity: 0; /* Скрываем все изображения по умолчанию */
+    transition: opacity 0.5s ease; /* Плавный переход при смене изображения */
 }
 
+.hero-image.active {
+    opacity: 1; /* Показываем активное изображение */
+}
+
+button.prev,
+button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон кнопок */
+    border: none; /* Убираем границу */
+    cursor: pointer;
+    font-size: 30px; /* Размер шрифта для стрелок */
+    padding: 10px;
+}
+
+button.prev {
+    left: 10px; /* Расположение кнопки "Назад" */
+}
+
+button.next {
+    right: 10px; /* Расположение кнопки "Вперед" */
+}
 /* Quote Section */
 .quote {
     background-color: #f1f1f1;
