@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <!-- Preloader -->
+<div id="preloader">
+    <div class="loader"></div>
+</div>
 <!-- Header -->
 <header>
     <div class="container">
@@ -37,7 +41,21 @@
         </form>
     </div>
 </div>
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeLoginModal">&times;</span>
+        <h2>Вход</h2>
+        <form id="loginForm">
+            <label for="loginUsername">Имя пользователя:</label>
+            <input type="text" id="loginUsername" name="loginUsername" required>
 
+            <label for="loginPassword">Пароль:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+
+            <button class="buttonokno">Войти</button>
+        </form>
+    </div>
+</div>
 <main>
     <!-- Hero Section -->
     <section class="hero">

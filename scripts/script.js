@@ -28,6 +28,104 @@ document.getElementById("signupForm").onsubmit = function(event) {
     alert("Регистрация успешно выполнена!"); // Здесь можно добавить свою логику
 };
 
+// Получаем элементы модального окна входа и кнопки
+var loginModal = document.getElementById("loginModal");
+var loginBtn = document.querySelector(".log-in"); // Используем querySelector, т.к. getElementById не подойдет
+var closeLoginModal = document.getElementById("closeLoginModal");
+
+// Когда пользователь нажимает на кнопку "Log In", открываем модальное окно
+loginBtn.onclick = function(event) {
+    event.preventDefault(); // Предотвращаем переход по ссылке
+    loginModal.style.display = "block";
+}
+
+// Когда пользователь нажимает на (x), закрываем модальное окно
+closeLoginModal.onclick = function() {
+    loginModal.style.display = "none";
+}
+
+// Когда пользователь кликает в любом месте вне модального окна, закрываем его
+window.onclick = function(event) {
+    if (event.target == loginModal) {
+        loginModal.style.display = "none";
+    }
+}
+
+// Обработка отправки формы входа
+document.getElementById("loginForm").onsubmit = function(event) {
+    event.preventDefault(); // Предотвращаем стандартное поведение формы
+    alert("Вход выполнен успешно!"); // Здесь можно добавить свою логику
+    // В реальном приложении здесь будет отправка данных на сервер и обработка ответа
+};
+
+
+
+//PRELOADER
+// Preloader
+window.addEventListener('load', function() {
+    document.getElementById('preloader').style.display = 'none';
+
+    // ---  Ваш существующий JavaScript код (модальные окна, слайдер и т.д.)  ---
+    // Получаем элементы модального окна и кнопки
+    var modal = document.getElementById("signupModal");
+    var btn = document.getElementById("signUpBtn");
+    var span = document.getElementById("closeModal");
+
+    // Когда пользователь нажимает на кнопку "Sign Up", открываем модальное окно
+    btn.onclick = function(event) {
+        event.preventDefault(); // Предотвращаем переход по ссылке
+        modal.style.display = "block";
+    }
+
+    // Когда пользователь нажимает на (x), закрываем модальное окно
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Когда пользователь кликает в любом месте вне модального окна, закрываем его
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Обработка отправки формы
+    document.getElementById("signupForm").onsubmit = function(event) {
+        event.preventDefault(); // Предотвращаем стандартное поведение формы
+        alert("Регистрация успешно выполнена!"); // Здесь можно добавить свою логику
+    };
+
+    // Получаем элементы модального окна входа и кнопки
+    var loginModal = document.getElementById("loginModal");
+    var loginBtn = document.querySelector(".log-in"); // Используем querySelector, т.к. getElementById не подойдет
+    var closeLoginModal = document.getElementById("closeLoginModal");
+
+    // Когда пользователь нажимает на кнопку "Log In", открываем модальное окно
+    loginBtn.onclick = function(event) {
+        event.preventDefault(); // Предотвращаем переход по ссылке
+        loginModal.style.display = "block";
+    }
+
+    // Когда пользователь нажимает на (x), закрываем модальное окно
+    closeLoginModal.onclick = function() {
+        loginModal.style.display = "none";
+    }
+
+    // Когда пользователь кликает в любом месте вне модального окна, закрываем его
+    window.onclick = function(event) {
+        if (event.target == loginModal) {
+            loginModal.style.display = "none";
+        }
+    }
+
+    // Обработка отправки формы входа
+    document.getElementById("loginForm").onsubmit = function(event) {
+        event.preventDefault(); // Предотвращаем стандартное поведение формы
+        alert("Вход выполнен успешно!"); // Здесь можно добавить свою логику
+        // В реальном приложении здесь будет отправка данных на сервер и обработка ответа
+    };
+
+});
 
 
 
