@@ -171,3 +171,5 @@ setInterval(autoChangeSlide, 3000);
 
 
 
+
+///PEREKL

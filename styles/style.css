@@ -325,6 +325,24 @@ button.next {
     width: 30%;
     text-align: left;
 }
+.thick-line {
+    border: none; /* Убираем стандартный стиль границы */
+    height: 5px; /* Устанавливаем высоту полоски */
+    background-color: #007BFF; /* Задаем цвет полоски */
+    margin: 10px 0; /* Отступы сверху и снизу */
+    cursor: pointer; /* Указываем, что полоска кликабельная */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+.feature:hover .thick-line {
+    background-color: #0056b3; /* Цвет подсветки при наведении */
+}
+
+.features .feature:not(:hover) .thick-line {
+    opacity: 0.3; /* Делаем остальные полоски более тусклыми при наведении на другую */
+}
+
+
 
 /* Connect Section */
 .connect {
