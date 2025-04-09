@@ -65,6 +65,8 @@ document.getElementById("loginForm").onsubmit = function(event) {
 window.addEventListener('load', function() {
     document.getElementById('preloader').style.display = 'none';
 
+
+
     // ---  Ваш существующий JavaScript код (модальные окна, слайдер и т.д.)  ---
     // Получаем элементы модального окна и кнопки
     var modal = document.getElementById("signupModal");
@@ -172,4 +174,46 @@ setInterval(autoChangeSlide, 3000);
 
 
 
-///PEREKL
+///KARTOCHKI
+
+const cards = {
+    card_1: {
+      title: 'Professional Profile',
+      description: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiters.',
+      image: 'img/professional-profile.png'
+    },
+    card_2: {
+      title: 'Best Portfolio',
+      description: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiters.',
+      image: 'img/professional-profile.png' 
+    },
+    card_3: {
+      title: 'Powerful Resume',
+      description: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiters.',
+      image: 'img/powerful-resume.png'
+    }
+  };
+
+  function generateCards(cards) {
+    const container = document.getElementById('features-container'); 
+    
+    if (!container) {
+      console.error('Элемент с id "features-container" не найден');
+      return;
+    }
+  
+    Object.keys(cards).forEach(key => {
+      const card = cards[key];
+      const cardHTML = `
+        <div class="feature" onclick="updateImage('${card.image}')">
+          <hr class="thick-line">
+          <h3>${card.title}</h3>
+          <p>${card.description}</p>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', cardHTML);
+    });
+  }
+  
+  generateCards(cards);
+  
