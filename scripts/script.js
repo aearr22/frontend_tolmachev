@@ -176,44 +176,47 @@ setInterval(autoChangeSlide, 3000);
 
 ///KARTOCHKI
 
-const cards = {
-    card_1: {
-      title: 'Professional Profile',
-      description: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiters.',
-      image: 'img/professional-profile.png'
-    },
-    card_2: {
-      title: 'Best Portfolio',
-      description: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiters.',
-      image: 'img/professional-profile.png' 
-    },
-    card_3: {
-      title: 'Powerful Resume',
-      description: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiters.',
-      image: 'img/powerful-resume.png'
+async function getCardsFromServer() {
+    try {
+      const response = await fetch('http://localhost:3000/cards.json');
+      
+      if (!response.ok) {
+        throw new Error('Ошибка при получении данных с сервера');
+      }
+      
+      const cards = await response.json();
+      return cards;
+    } catch (error) {
+      console.error('Ошибка:', error);
     }
-  };
-
-  function generateCards(cards) {
-    const container = document.getElementById('features-container'); 
+  }
+  
+  async function generateCards() {
+    const cards = await getCardsFromServer();
+    
+    if (!cards) return;
+    
+    const container = document.getElementById('features-container');
     
     if (!container) {
       console.error('Элемент с id "features-container" не найден');
       return;
     }
-  
-    Object.keys(cards).forEach(key => {
-      const card = cards[key];
+    
+    container.innerHTML = ''; // Очистите контейнер
+    
+    cards.forEach(card => {
       const cardHTML = `
-        <div class="feature" onclick="updateImage('${card.image}')">
-          <hr class="thick-line">
-          <h3>${card.title}</h3>
-          <p>${card.description}</p>
+        <div class="card">
+          <img src="${card.image}" class="card-img-top" alt="${card.title}" onclick="updateImage('${card.image}')">
+          <div class="card-body">
+            <h5 class="card-title">${card.title}</h5>
+            <p class="card-text">${card.description}</p>
+          </div>
         </div>
       `;
       container.insertAdjacentHTML('beforeend', cardHTML);
     });
   }
   
-  generateCards(cards);
   
