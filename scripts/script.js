@@ -174,27 +174,8 @@ setInterval(autoChangeSlide, 3000);
 
 
 
-///KARTOCHKI
-
-const cards = {
-    card_1: {
-      title: 'Professional Profile',
-      description: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiters.',
-      image: 'img/professional-profile.png'
-    },
-    card_2: {
-      title: 'Best Portfolio',
-      description: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiters.',
-      image: 'img/professional-profile.png' 
-    },
-    card_3: {
-      title: 'Powerful Resume',
-      description: 'We know finding the right job is stressful, so we’ve made it simple. It only takes a few minutes. Create a free portfolio on briefolio to show your best self and get discovered by recruiters.',
-      image: 'img/powerful-resume.png'
-    }
-  };
-
-  function generateCards(cards) {
+///задания 3
+function generateCards(cards) {
     const container = document.getElementById('features-container'); 
     
     if (!container) {
@@ -203,17 +184,32 @@ const cards = {
     }
   
     Object.keys(cards).forEach(key => {
+        
       const card = cards[key];
+      console.log(card);
       const cardHTML = `
         <div class="feature" onclick="updateImage('${card.image}')">
           <hr class="thick-line">
-          <h3>${card.title}</h3>
-          <p>${card.description}</p>
+          <h3>${card.card_name}</h3>
+          <p>${card.card_text}</p>
         </div>
       `;
       container.insertAdjacentHTML('beforeend', cardHTML);
     });
   }
-  
-  generateCards(cards);
+
+
+fetch('https://jsonplaceholder.typicode.com/posts?_limit=3')
+      .then(response => response.json())
+      .then(json => {
+        console.log(json);
+        
+        const cards = json.map((comment, index) => ({
+            card_name: `Comment ${index+1}`,
+            card_text: comment.body,
+        }))
+        generateCards(cards);
+        })
+
+    
   
