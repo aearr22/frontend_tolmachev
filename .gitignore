@@ -14,3 +14,6 @@ bower_components
 .grunt
 .npm
 .env
+node_modules/
+scripts/main.js
+scripts/main.js.map
